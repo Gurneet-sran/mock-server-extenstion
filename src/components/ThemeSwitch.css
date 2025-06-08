@@ -1,0 +1,76 @@
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.theme-switch-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color, #333);
+  cursor: pointer;
+}
+
+.theme-icon {
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.theme-select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 4px;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #333);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.theme-select:hover {
+  border-color: var(--accent-color, #646cff);
+}
+
+.theme-select:focus {
+  outline: none;
+  border-color: var(--accent-color, #646cff);
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+}
+
+/* Dark theme styles */
+@media (prefers-color-scheme: dark) {
+  .theme-switch-label {
+    color: var(--text-color, #fff);
+  }
+
+  .theme-select {
+    background-color: var(--bg-color, #1a1a1a);
+    color: var(--text-color, #fff);
+    border-color: var(--border-color, #444);
+  }
+}
+
+/* Override when theme is explicitly set */
+:root[style*="--theme: dark"] .theme-switch-label {
+  color: #fff;
+}
+
+:root[style*="--theme: dark"] .theme-select {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-color: #444;
+}
+
+:root[style*="--theme: light"] .theme-switch-label {
+  color: #333;
+}
+
+:root[style*="--theme: light"] .theme-select {
+  background-color: #fff;
+  color: #333;
+  border-color: #ccc;
+} 

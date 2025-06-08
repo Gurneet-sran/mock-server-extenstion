@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "Mock API Extension /w React",
+    "version": "1.0.0",
+    "description": "A Chrome extension to mock API responses for development and testing",
+    "permissions": [
+      "storage",
+      "declarativeNetRequest",
+      "activeTab",
+      "tabs"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "index.html",
+      "default_title": "Mock API Extension"
+    },
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "declarative_net_request": {
+      "rule_resources": []
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["assets/*"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+    }
+  }
